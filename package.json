@@ -13,11 +13,11 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tmibudis/codelabs-next-pwa/issues"
+    "url": "https://github.com/tmibudis/codelabs-next-web/issues"
   },
-  "homepage": "https://github.com/tomibudis/codelabs-next-pwa#readme",
+  "homepage": "https://github.com/tomibudis/codelabs-next-web#readme",
   "bin": {
-    "codelabs-next-pwa": "bin/cli.js"
+    "codelabs-next-web": "bin/cli.js"
   },
   "author": "tomibudis",
   "scripts": {

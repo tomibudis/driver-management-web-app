@@ -19,7 +19,6 @@ This is the Next.js application for Web Frontend Template
 - bootstrap 5
 - react-query
 - nextjs@latest
-- next-pwa
 - axios
 - dayjs
 ```
