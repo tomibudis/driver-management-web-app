@@ -18,6 +18,7 @@ This is the Next.js application for Web Frontend Driver management shipper
 - jest & testing-library
 - bootstrap 5
 - styled-component (css in js)
+- bootstrap-icons
 - react-query
 - nextjs@latest
 - axios
