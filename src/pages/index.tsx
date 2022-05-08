@@ -1,18 +1,11 @@
-import React from "react";
-import type { NextPage } from "next";
-import Head from "next/head";
+import { NextPageContext } from "next";
+import { redirect } from "~utils/redirect";
 
-import Homepage from "../views/homepage";
+const RootPage = () => null;
 
-const Home: NextPage = () => {
-  return (
-    <>
-      <Head>
-        <title>Driver Management App</title>
-      </Head>
-      <Homepage />
-    </>
-  );
+RootPage.getInitialProps = async (ctx: NextPageContext) => {
+  redirect(ctx, "/homepage");
+  return {};
 };
 
-export default Home;
+export default RootPage;

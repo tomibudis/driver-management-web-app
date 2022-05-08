@@ -1,17 +1,18 @@
+// NOTE: reference icon name -> https://icons.getbootstrap.com/
 export const MENU = [
   {
     label: "Beranda",
     link: "/homepage",
-    icon: "",
+    icon: "bi bi-house-door",
   },
   {
     label: "Driver Management",
     link: "/driver-management",
-    icon: "",
+    icon: "bi bi-geo",
   },
   {
     label: "Pickup",
     link: "/pickup",
-    icon: "",
+    icon: "bi bi-calendar2",
   },
 ];

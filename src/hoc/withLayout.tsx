@@ -5,6 +5,7 @@ import type { Router } from "next/router";
 import ResponsiveProvider from "~contexts/responsive";
 
 import { Header, Sidebar } from "~components/index";
+import { MENU } from "~constants/index";
 
 type PropsWithRouter = {
   router: Router;
@@ -33,7 +34,7 @@ function withLayout<T>(
             <Header />
           </div>
           <div className="d-flex flex-fill overflow-auto">
-            <Sidebar />
+            <Sidebar menu={MENU} />
             <div className="d-flex flex-column flex-fill overflow-auto bg-light">
               <WrappedComponent {...(props as T)} />
             </div>
