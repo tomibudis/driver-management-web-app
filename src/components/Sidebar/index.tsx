@@ -1,19 +1,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import { SidebarMenu } from "~src/types/components";
+
 import { MenuStyled } from "./styled";
 
-interface SidebarProps {
-  menu: {
-    label: string;
-    icon?: string;
-    link?: string;
-  }[];
-}
-
-const Sidebar: React.FC<SidebarProps> = ({ menu }) => {
+const Sidebar: React.FC<{ menu: SidebarMenu[] }> = ({ menu }) => {
   const { asPath } = useRouter();
-
   return (
     <div
       className="d-flex bg-white flex-column overflow-auto h-100"
