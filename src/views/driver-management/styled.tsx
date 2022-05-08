@@ -33,3 +33,10 @@ export const WrapperHeader = styled.div<any>`
     }
   }
 `;
+
+export const WrapperData = styled.div`
+  display: flex;
+  gap: 10px;
+  width: fit-content;
+}
+`;

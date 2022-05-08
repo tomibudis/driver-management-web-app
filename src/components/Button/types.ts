@@ -5,4 +5,5 @@ export interface ButtonProps extends React.RefAttributes<HTMLButtonElement> {
   rightIcon?: string;
   variant: Variant;
   disabled?: boolean;
+  isMobile?: boolean;
 }

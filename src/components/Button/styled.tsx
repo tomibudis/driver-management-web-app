@@ -10,7 +10,8 @@ export const StyledButton = styled.button<ButtonProps>`
   border: none;
   border-radius: 4px;
   padding: 8px 14px;
-  width: inherit;
+  justify-content: center;
+  width: ${(props) => (props.isMobile ? "100%" : "240px")};
   color: ${(props) => (props.variant === "primary" ? "white" : "black")};
   :hover {
     background: ${(props) => props.variant === "primary" && "#f04a41d4"};

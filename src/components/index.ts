@@ -6,3 +6,4 @@ export { default as SearchControl } from "./SearchControl";
 export { default as Drawer } from "./Drawer";
 export { default as Sidebar } from "./Sidebar";
 export { default as DataRow } from "./DataRow";
+export { default as Avatar } from "./Avatar";
