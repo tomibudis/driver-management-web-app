@@ -7,6 +7,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import { Provider } from "react-redux";
 
 import { store } from "../redux/store";
+import withLayout from "~src/hoc/withLayout";
 
 const configQuery = {
   defaultOptions: {
@@ -30,4 +31,4 @@ function App({ Component, pageProps }: AppProps) {
   );
 }
 
-export default App;
+export default withLayout(App, { blacklist: [] });

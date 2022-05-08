@@ -1,11 +1,9 @@
 import React, { memo } from "react";
 
-import styles from "./homepage.module.scss";
-
 const Homepage: React.FC = () => {
   return (
     <>
-      <div className={styles.homepage}>Homepage</div>
+      <div className="bg-danger">Homepage</div>
     </>
   );
 };

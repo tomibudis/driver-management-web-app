@@ -1,5 +1,17 @@
-export const SIZE = {
-  NORMAL: "normal",
-  SMALL: "small",
-  EXTRA_SMALL: "extraSmall",
-};
+export const MENU = [
+  {
+    label: "Beranda",
+    link: "/homepage",
+    icon: "",
+  },
+  {
+    label: "Driver Management",
+    link: "/driver-management",
+    icon: "",
+  },
+  {
+    label: "Pickup",
+    link: "/pickup",
+    icon: "",
+  },
+];
