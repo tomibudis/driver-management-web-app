@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./counter/reducer";
+import driversReducer from "./drivers/reducer";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    drivers: driversReducer,
   },
 });
 

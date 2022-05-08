@@ -1,4 +1,5 @@
-import React, { memo } from "react";
+import React, { memo, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   SearchControl,
@@ -8,11 +9,23 @@ import {
   DataRow,
   Pagination,
 } from "~components/index";
+import { setCurrentPage } from "~redux/drivers/reducer";
+import { RootState } from "~redux/store";
 import useResponsive from "~src/hooks/useResponsive";
 import { WrapperData, WrapperHeader } from "./styled";
 
 const DriverManagement: React.FC = () => {
   const { isMobile } = useResponsive();
+  const dispatch = useDispatch();
+  const drivers = useSelector((state: RootState) => state.drivers);
+
+  const onNext = useCallback(() => {
+    dispatch(setCurrentPage(drivers.info.page + 1));
+  }, [dispatch, drivers]);
+
+  const onPrev = useCallback(() => {
+    dispatch(setCurrentPage(drivers.info.page - 1));
+  }, [dispatch, drivers]);
 
   return (
     <div className="p-3">
@@ -75,8 +88,8 @@ const DriverManagement: React.FC = () => {
         hasNext={true}
         hasPrevious={false}
         className="py-4"
-        onNext={() => null}
-        onPrev={() => null}
+        onNext={onNext}
+        onPrev={onPrev}
       />
     </div>
   );

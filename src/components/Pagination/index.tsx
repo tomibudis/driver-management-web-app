@@ -20,7 +20,7 @@ const Pagination: React.FC<PaginationProps> = ({
   return (
     <div className={cx("d-flex justify-content-center", className)}>
       <Button
-        onClick={onNext}
+        onClick={onPrev}
         disabled={hasNext}
         variant="link"
         leftIcon="bi bi-chevron-left"
@@ -31,7 +31,7 @@ const Pagination: React.FC<PaginationProps> = ({
         disabled={hasPrevious}
         variant="link"
         rightIcon="bi bi-chevron-right"
-        onClick={onPrev}
+        onClick={onNext}
       >
         Next Page
       </Button>
