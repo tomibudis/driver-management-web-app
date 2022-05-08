@@ -18,24 +18,39 @@ export interface DriversState {
   info: {
     results: number;
     page: number;
+    hasNext: boolean;
+    hasPrev: boolean;
   };
 }
 
 const initialState: DriversState = {
   results: [],
-  info: null,
+  info: {
+    results: null,
+    page: 1,
+    hasNext: true,
+    hasPrev: false,
+  },
 };
+
+const LIMIT_DISPLAY = 5;
 
 export const driversReducer = createSlice({
   name: "drivers",
   initialState,
   reducers: {
     setDrivers: (state, action: PayloadAction<DriversState>) => {
-      state.info = action.payload.info;
+      state.info = {
+        ...state.info,
+        ...action.payload.info,
+      };
       state.results = action.payload.results;
     },
     setCurrentPage: (state, action: PayloadAction<number>) => {
       state.info.page = action.payload;
+      state.info.hasNext =
+        state.info?.results - action.payload * LIMIT_DISPLAY > 0;
+      state.info.hasPrev = LIMIT_DISPLAY !== action.payload * LIMIT_DISPLAY;
     },
   },
 });

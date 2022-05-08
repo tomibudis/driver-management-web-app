@@ -85,8 +85,8 @@ const DriverManagement: React.FC = () => {
         </WrapperData>
       </div>
       <Pagination
-        hasNext={true}
-        hasPrevious={false}
+        hasNext={drivers?.info?.hasNext}
+        hasPrevious={drivers?.info?.hasPrev}
         className="py-4"
         onNext={onNext}
         onPrev={onPrev}
