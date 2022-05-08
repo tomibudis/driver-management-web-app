@@ -16,3 +16,7 @@ export const MENU = [
     icon: "bi bi-calendar2",
   },
 ];
+
+export const COLORS = {
+  RED: "#f04a41",
+};

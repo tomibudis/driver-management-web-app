@@ -1,17 +1,16 @@
 import styled from "styled-components";
+import { COLORS } from "~constants/index";
 
 interface Menu {
   isActive: boolean;
 }
 
-const RED_COLOR = "#f04a41";
-
 export const MenuStyled = styled.div<Menu>`
   border-left: ${(props) =>
-    props.isActive ? `8px solid ${RED_COLOR}` : "8px solid white"};
-  color: ${(props) => props.isActive && RED_COLOR};
+    props.isActive ? `8px solid ${COLORS.RED}` : "8px solid white"};
+  color: ${(props) => props.isActive && COLORS.RED};
   cursor: pointer;
   &:hover {
-    color: ${RED_COLOR};
+    color: ${COLORS.RED};
   }
 `;
