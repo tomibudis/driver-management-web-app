@@ -8,7 +8,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Codelabs Next PWA</title>
+        <title>Driver Management App</title>
       </Head>
       <Homepage />
     </>

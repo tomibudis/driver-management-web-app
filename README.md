@@ -1,6 +1,6 @@
-# Next Typescript Boilerplate
+# Driver Management App
 
-This is the Next.js application for Web Frontend Template
+This is the Next.js application for Web Frontend Driver management shipper
 
 ### Lighthouse
 
@@ -17,10 +17,11 @@ This is the Next.js application for Web Frontend Template
 ```
 - jest & testing-library
 - bootstrap 5
+- styled-component (css in js)
 - react-query
 - nextjs@latest
 - axios
-- dayjs
+- dayjs (date management)
 ```
 
 ## How to Install
@@ -31,14 +32,6 @@ Prerequisite
 node ^v14.17.0
 npm ^6.14.13
 ```
-
-run script
-
-```
-npx tomibudis/codelabs-next-web {appName}
-```
-
-When init project successfully. follow the following command script to start
 
 ## Development
 
@@ -133,3 +126,7 @@ Additional information can be found [here](https://github.com/KWRI/engineering-r
 1. build application with `npm run build`
 2. run app locally `npm run start`
 3. run `npx lighthouse-badges --urls http://localhost:3000 -o lighthouse`
+
+## Additional Information
+Endpoint
+- https://randomuser.me/api/?results=30

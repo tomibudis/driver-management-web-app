@@ -4,6 +4,9 @@ import React from "react";
 import type { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { Provider } from "react-redux";
+
+import { store } from "../redux/store";
 
 const configQuery = {
   defaultOptions: {
@@ -19,7 +22,9 @@ function App({ Component, pageProps }: AppProps) {
   const [queryClient] = React.useState(() => new QueryClient(configQuery));
   return (
     <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
       {isDevEnv && <ReactQueryDevtools />}
     </QueryClientProvider>
   );

@@ -1,0 +1,21 @@
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "displayName": true,
+        "preprocess": false
+      }
+    ],
+    [
+      "babel-plugin-transform-imports",
+      {
+        "lodash": {
+          "transform": "lodash/${member}"
+        }
+      }
+    ]
+  ]
+}
