@@ -6,6 +6,7 @@ import { ButtonProps } from "./types";
 const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   rightIcon,
+  leftIcon,
   onClick,
   children,
   disabled = false,
@@ -20,6 +21,7 @@ const Button: React.FC<ButtonProps> = ({
       isMobile={isMobile}
       {...props}
     >
+      {leftIcon && <i className={leftIcon} />}
       {children}
       {rightIcon && <i className={rightIcon} />}
     </StyledButton>

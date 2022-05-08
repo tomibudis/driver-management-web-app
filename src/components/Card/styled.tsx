@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { COLORS } from "~constants/index";
+import { ResponsiveType } from "~src/types/components";
 
-export const StyledCard = styled.div`
+export const StyledCard = styled.div<ResponsiveType>`
   background: white;
-  width: 250px;
+  width: ${(props) => (props.isMobile ? "100%" : "250px")};
   border-radius: 4px;
 
   > div:nth-child(1) {

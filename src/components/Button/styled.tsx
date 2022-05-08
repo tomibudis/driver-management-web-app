@@ -11,7 +11,8 @@ export const StyledButton = styled.button<ButtonProps>`
   border-radius: 4px;
   padding: 8px 14px;
   justify-content: center;
-  width: ${(props) => (props.isMobile ? "100%" : "240px")};
+  white-space: nowrap;
+  width: ${(props) => props.isMobile && "100%"};
   color: ${(props) => (props.variant === "primary" ? "white" : "black")};
   :hover {
     background: ${(props) => props.variant === "primary" && "#f04a41d4"};

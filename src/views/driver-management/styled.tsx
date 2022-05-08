@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { COLORS } from "~constants/index";
+import { ResponsiveType } from "~src/types/components";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const WrapperHeader = styled.div<any>`
+export const WrapperHeader = styled.div<ResponsiveType>`
   padding: 15px;
   background: white;
   border-radius: 4px;
@@ -34,9 +34,14 @@ export const WrapperHeader = styled.div<any>`
   }
 `;
 
-export const WrapperData = styled.div`
-  display: flex;
+export const WrapperData = styled.div<ResponsiveType>`
+  display: ${(props) => (props.isMobile ? "contents" : "flex")};
+  flex-direction: ${(props) => (props.isMobile ? "column" : "row")};
   gap: 10px;
   width: fit-content;
+
+  > div {
+    margin-top: 8px;
+  }
 }
 `;

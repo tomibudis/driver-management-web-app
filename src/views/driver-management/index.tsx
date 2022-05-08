@@ -6,6 +6,7 @@ import {
   Card,
   Avatar,
   DataRow,
+  Pagination,
 } from "~components/index";
 import useResponsive from "~src/hooks/useResponsive";
 import { WrapperData, WrapperHeader } from "./styled";
@@ -23,12 +24,12 @@ const DriverManagement: React.FC = () => {
         <div>
           <SearchControl placeholder="Cari Driver" onChange={() => null} />
           <Button variant="primary" rightIcon="bi bi-plus">
-            TAMBAH DRIVER
+            Tambah Driver
           </Button>
         </div>
       </WrapperHeader>
       <div className="overflow-auto">
-        <WrapperData className="py-4">
+        <WrapperData className="py-4" isMobile={isMobile}>
           <Card driverId="1234">
             <Avatar img="https://randomuser.me/api/portraits/men/24.jpg" />
             <DataRow label="Nama Driver" value="First Name, LastName" />
@@ -70,6 +71,13 @@ const DriverManagement: React.FC = () => {
           </Card>
         </WrapperData>
       </div>
+      <Pagination
+        hasNext={true}
+        hasPrevious={false}
+        className="py-4"
+        onNext={() => null}
+        onPrev={() => null}
+      />
     </div>
   );
 };
