@@ -1,5 +1,6 @@
 import React, { memo, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import _ from "lodash";
 
 import {
   SearchControl,
@@ -9,7 +10,7 @@ import {
   DataRow,
   Pagination,
 } from "~components/index";
-import { setCurrentPage } from "~redux/drivers/reducer";
+import { setCurrentPage, searchDriver } from "~redux/drivers/reducer";
 import { RootState } from "~redux/store";
 import useResponsive from "~src/hooks/useResponsive";
 import { toFullName } from "~utils/common";
@@ -29,6 +30,13 @@ const DriverManagement: React.FC = () => {
     dispatch(setCurrentPage(drivers.info.page - 1));
   }, [dispatch, drivers]);
 
+  const onSearchDriver = useCallback(
+    (value) => {
+      dispatch(searchDriver(value));
+      _.isEmpty(value) && dispatch(setCurrentPage(1));
+    },
+    [dispatch]
+  );
   return (
     <div className="p-3">
       <WrapperHeader isMobile={isMobile}>
@@ -37,7 +45,7 @@ const DriverManagement: React.FC = () => {
           <p>Data driver yang bekerja dengan Anda.</p>
         </div>
         <div>
-          <SearchControl placeholder="Cari Driver" onChange={() => null} />
+          <SearchControl placeholder="Cari Driver" onChange={onSearchDriver} />
           <Button variant="primary" rightIcon="bi bi-plus">
             Tambah Driver
           </Button>
@@ -62,15 +70,20 @@ const DriverManagement: React.FC = () => {
               </Card>
             );
           })}
+          {!drivers?.data?.length && (
+            <div className="d-flex justify-content-center">Data Not Found!</div>
+          )}
         </WrapperData>
       </div>
-      <Pagination
-        hasNext={drivers?.info?.hasNext}
-        hasPrevious={drivers?.info?.hasPrev}
-        className="py-4"
-        onNext={onNext}
-        onPrev={onPrev}
-      />
+      {!!drivers?.data?.length && (
+        <Pagination
+          hasNext={drivers?.info?.hasNext}
+          hasPrevious={drivers?.info?.hasPrev}
+          className="py-4"
+          onNext={onNext}
+          onPrev={onPrev}
+        />
+      )}
     </div>
   );
 };

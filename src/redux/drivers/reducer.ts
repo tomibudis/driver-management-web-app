@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import _ from "lodash";
 
 interface DataDriver {
   gender: string;
@@ -64,13 +65,21 @@ export const driversReducer = createSlice({
       state.info.hasPrev = LIMIT_DISPLAY !== action.payload * LIMIT_DISPLAY;
       state.data = state.results?.slice(
         // eslint-disable-next-line prettier/prettier
-        (action.payload * LIMIT_DISPLAY) - LIMIT_DISPLAY,
+        action.payload * LIMIT_DISPLAY - LIMIT_DISPLAY,
         action.payload * LIMIT_DISPLAY
       );
+    },
+    searchDriver: (state, action: PayloadAction<string>) => {
+      state.data = _.isEmpty(action.payload)
+        ? state.results?.slice(0, LIMIT_DISPLAY)
+        : _.filter(state.results, (result) =>
+            result.name?.first?.includes(action.payload)
+          );
     },
   },
 });
 
-export const { setDrivers, setCurrentPage } = driversReducer.actions;
+export const { setDrivers, setCurrentPage, searchDriver } =
+  driversReducer.actions;
 
 export default driversReducer.reducer;
