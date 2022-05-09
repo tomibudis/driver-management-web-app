@@ -14,6 +14,7 @@ const DriverManagementPage = ({
 
   useEffect(() => {
     dispatch(setDrivers(drivers));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
