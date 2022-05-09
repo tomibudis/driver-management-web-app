@@ -23,9 +23,9 @@ interface DataDriver {
   };
 }
 export interface DriversState {
-  results: DataDriver[];
-  data: DataDriver[];
-  info: {
+  results?: DataDriver[];
+  data?: DataDriver[];
+  info?: {
     results: number;
     page: number;
     hasNext: boolean;

@@ -17,6 +17,8 @@ const customJestConfig = {
     "^~utils/(.*)$": "<rootDir>/src/utils/$1",
     "^~hooks/(.*)$": "<rootDir>/src/hooks/$1",
     "^~constants/(.*)$": "<rootDir>/src/constants/$1",
+    "^~contexts/(.*)$": "<rootDir>/src/contexts/$1",
+    "^~redux/(.*)$": "<rootDir>/src/redux/$1",
   },
   testEnvironment: "jest-environment-jsdom",
   coverageReporters: ["json-summary"],
