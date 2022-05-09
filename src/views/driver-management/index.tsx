@@ -12,6 +12,8 @@ import {
 import { setCurrentPage } from "~redux/drivers/reducer";
 import { RootState } from "~redux/store";
 import useResponsive from "~src/hooks/useResponsive";
+import { toFullName } from "~utils/common";
+import { dateFormat } from "~utils/date";
 import { WrapperData, WrapperHeader } from "./styled";
 
 const DriverManagement: React.FC = () => {
@@ -43,45 +45,23 @@ const DriverManagement: React.FC = () => {
       </WrapperHeader>
       <div className="overflow-auto">
         <WrapperData className="py-4" isMobile={isMobile}>
-          <Card driverId="1234">
-            <Avatar img="https://randomuser.me/api/portraits/men/24.jpg" />
-            <DataRow label="Nama Driver" value="First Name, LastName" />
-            <DataRow label="Telepon" value="74678172783" />
-            <DataRow label="Email" value="mail@gmail.com" />
-            <DataRow label="Tanggal Lahir" value="DD/mm/YYYY" />
-          </Card>
-
-          <Card driverId="1234">
-            <Avatar img="https://randomuser.me/api/portraits/men/24.jpg" />
-            <DataRow label="Nama Driver" value="First Name, LastName" />
-            <DataRow label="Telepon" value="74678172783" />
-            <DataRow label="Email" value="mail@gmail.com" />
-            <DataRow label="Tanggal Lahir" value="DD/mm/YYYY" />
-          </Card>
-
-          <Card driverId="1234">
-            <Avatar img="https://randomuser.me/api/portraits/men/24.jpg" />
-            <DataRow label="Nama Driver" value="First Name, LastName" />
-            <DataRow label="Telepon" value="74678172783" />
-            <DataRow label="Email" value="mail@gmail.com" />
-            <DataRow label="Tanggal Lahir" value="DD/mm/YYYY" />
-          </Card>
-
-          <Card driverId="1234">
-            <Avatar img="https://randomuser.me/api/portraits/men/24.jpg" />
-            <DataRow label="Nama Driver" value="First Name, LastName" />
-            <DataRow label="Telepon" value="74678172783" />
-            <DataRow label="Email" value="mail@gmail.com" />
-            <DataRow label="Tanggal Lahir" value="DD/mm/YYYY" />
-          </Card>
-
-          <Card driverId="1234">
-            <Avatar img="https://randomuser.me/api/portraits/men/24.jpg" />
-            <DataRow label="Nama Driver" value="First Name, LastName" />
-            <DataRow label="Telepon" value="74678172783" />
-            <DataRow label="Email" value="mail@gmail.com" />
-            <DataRow label="Tanggal Lahir" value="DD/mm/YYYY" />
-          </Card>
+          {drivers?.data?.map((driver, index) => {
+            return (
+              <Card driverId={driver.id.value} key={index}>
+                <Avatar img={driver.picture.medium} />
+                <DataRow
+                  label="Nama Driver"
+                  value={toFullName(driver.name.first, driver.name.last)}
+                />
+                <DataRow label="Telepon" value={driver.phone} />
+                <DataRow label="Email" value={driver.email} />
+                <DataRow
+                  label="Tanggal Lahir"
+                  value={dateFormat(driver.dob.date, "DD-MM-YYYY")}
+                />
+              </Card>
+            );
+          })}
         </WrapperData>
       </div>
       <Pagination

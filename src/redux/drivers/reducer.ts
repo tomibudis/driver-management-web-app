@@ -1,20 +1,29 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+interface DataDriver {
+  gender: string;
+  name: {
+    title: string;
+    first: string;
+    last: string;
+  };
+  email: string;
+  dob: {
+    date: string;
+    age: number;
+  };
+  phone: string;
+  id: {
+    name: string;
+    value: string;
+  };
+  picture: {
+    medium: string;
+  };
+}
 export interface DriversState {
-  results: {
-    gender: string;
-    name: {
-      title: string;
-      first: string;
-      last: string;
-    };
-    email: string;
-    dob: {
-      date: string;
-      age: number;
-    };
-    phone: string;
-  }[];
+  results: DataDriver[];
+  data: DataDriver[];
   info: {
     results: number;
     page: number;
@@ -25,6 +34,7 @@ export interface DriversState {
 
 const initialState: DriversState = {
   results: [],
+  data: [],
   info: {
     results: null,
     page: 1,
@@ -45,12 +55,18 @@ export const driversReducer = createSlice({
         ...action.payload.info,
       };
       state.results = action.payload.results;
+      state.data = action.payload.results?.slice(0, LIMIT_DISPLAY);
     },
     setCurrentPage: (state, action: PayloadAction<number>) => {
       state.info.page = action.payload;
       state.info.hasNext =
         state.info?.results - action.payload * LIMIT_DISPLAY > 0;
       state.info.hasPrev = LIMIT_DISPLAY !== action.payload * LIMIT_DISPLAY;
+      state.data = state.results?.slice(
+        // eslint-disable-next-line prettier/prettier
+        (action.payload * LIMIT_DISPLAY) - LIMIT_DISPLAY,
+        action.payload * LIMIT_DISPLAY
+      );
     },
   },
 });

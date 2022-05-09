@@ -1,4 +1,5 @@
 import React from "react";
+import { DEFAULT_EMPTY } from "~constants/index";
 import useResponsive from "~src/hooks/useResponsive";
 
 import { StyledCard } from "./styled";
@@ -11,7 +12,7 @@ const Card: React.FC<CardProps> = ({ children, driverId }) => {
     <StyledCard isMobile={isMobile}>
       <div className="p-3">
         <div>
-          Driver ID: <span>{driverId}</span>
+          Driver ID: <span>{driverId || DEFAULT_EMPTY}</span>
         </div>
         <i className="bi bi-three-dots" />
       </div>

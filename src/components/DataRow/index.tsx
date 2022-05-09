@@ -1,4 +1,5 @@
 import React from "react";
+import { DEFAULT_EMPTY } from "~constants/index";
 
 import { StyledDataRow } from "./styled";
 
@@ -11,7 +12,7 @@ const DataRow: React.FC<DataRowProps> = ({ value, label }) => {
   return (
     <StyledDataRow>
       <span>{label}</span>
-      <span>{value}</span>
+      <span>{value || DEFAULT_EMPTY}</span>
     </StyledDataRow>
   );
 };

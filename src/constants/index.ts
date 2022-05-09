@@ -20,3 +20,5 @@ export const MENU = [
 export const COLORS = {
   RED: "#f04a41",
 };
+
+export const DEFAULT_EMPTY = "--";
